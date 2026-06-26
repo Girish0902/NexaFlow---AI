@@ -326,4 +326,27 @@
   .mobile-toggle {
     display: flex;
   }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-cta {
+    padding: 9px 16px;
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-drawer {
+    width: 100vw;
+    right: -100vw;
+  }
+  .mobile-drawer.open {
+    right: 0;
+  }
+  .nav-container {
+    padding: 0 16px;
+  }
+  .nav-logo {
+    font-size: var(--text-xl);
+  }
 }

@@ -264,3 +264,33 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Mobile global adjustments */
+@media (max-width: 768px) {
+  .glow-orb {
+    width: 200px;
+    height: 200px;
+  }
+  .reveal {
+    opacity: 0;
+    transform: none;
+    transition: opacity 500ms ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: none;
+    transition: opacity 500ms ease-out;
+  }
+  .reveal-stagger.visible > * {
+    opacity: 1;
+    transform: none;
+  }
+}

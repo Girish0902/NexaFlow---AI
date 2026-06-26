@@ -130,20 +130,41 @@
 }
 
 @media (max-width: 768px) {
+  .footer-section {
+    padding: 60px 20px 32px;
+  }
   .footer-container {
     grid-template-columns: 1fr;
     gap: 32px;
+    margin-bottom: 40px;
   }
   .brand-col {
     align-items: center;
     text-align: center;
   }
+  .brand-desc {
+    max-width: 100%;
+  }
   .footer-heading {
     margin-bottom: 12px;
+    text-align: center;
+  }
+  .footer-links {
+    align-items: center;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 20px;
     text-align: center;
+  }
+  .footer-col {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-socials {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

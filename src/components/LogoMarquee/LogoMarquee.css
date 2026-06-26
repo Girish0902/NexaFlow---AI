@@ -53,3 +53,16 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 768px) {
+  .logo-marquee-section {
+    padding: 16px 0;
+  }
+  .marquee-content {
+    gap: 40px;
+    animation-duration: 30s;
+  }
+  .partner-logo {
+    font-size: var(--text-base);
+  }
+}

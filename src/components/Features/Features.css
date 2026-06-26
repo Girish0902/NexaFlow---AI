@@ -262,6 +262,33 @@
   }
 }
 
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .features-section {
+    padding: 80px 20px;
+  }
+  .features-header {
+    margin-bottom: 48px;
+  }
+  .features-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+  .features-sub {
+    font-size: var(--text-base);
+  }
+  .bento-card {
+    padding: 24px;
+  }
+  .bento-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+  }
+  .bento-card-title {
+    font-size: var(--text-lg);
+  }
+}
+
 /* Accordion Mobile with Premium styling */
 .accordion-list {
   display: flex;

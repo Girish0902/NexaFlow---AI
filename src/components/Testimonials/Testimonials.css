@@ -191,6 +191,15 @@
 }
 
 @media (max-width: 768px) {
+  .testimonials-section {
+    padding: 80px 20px;
+  }
+  .testimonials-header {
+    margin-bottom: 48px;
+  }
+  .testimonials-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
   .testimonial-card {
     padding: 40px 32px;
     gap: 24px;
@@ -202,5 +211,21 @@
   }
   .testimonial-quote {
     font-size: var(--text-base);
+  }
+  .carousel-nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 28px 20px;
+  }
+  .testimonials-carousel {
+    min-height: 280px;
+  }
+  .carousel-control {
+    width: 38px;
+    height: 38px;
   }
 }

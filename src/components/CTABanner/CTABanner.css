@@ -98,7 +98,19 @@
   box-shadow: 0 0 0 2px var(--c-accent1);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .cta-banner-section {
+    padding: 60px 20px;
+  }
+  .cta-headline {
+    font-size: var(--text-2xl);
+  }
+  .cta-sub {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 480px) {
   .cta-form {
     flex-direction: column;
     background: transparent;

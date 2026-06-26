@@ -1,0 +1,406 @@
+.pricing-section {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 24px;
+  position: relative;
+}
+
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 153, 50, 0.04) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.pricing-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--c-accent1);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.pricing-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-4xl);
+  color: var(--c-text);
+  margin-top: 12px;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.pricing-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--c-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.pricing-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 70px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+/* Billing Toggle Pill */
+.billing-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(17, 76, 90, 0.5);
+  border: 1px solid var(--c-border);
+  padding: 10px 22px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+}
+
+.toggle-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  font-weight: 600;
+  transition: color 150ms ease-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-label.active {
+  color: var(--c-text);
+}
+
+.discount-badge {
+  background: var(--grad-cta);
+  color: #172B36;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.billing-toggle {
+  background: #172B36;
+  border: 1px solid var(--c-border);
+  width: 54px;
+  height: 28px;
+  border-radius: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 150ms ease-out;
+}
+
+.billing-toggle:focus-visible {
+  box-shadow: 0 0 0 2px var(--c-accent1);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--c-muted);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), background 150ms ease-out;
+}
+
+.billing-toggle.annual .toggle-thumb {
+  transform: translateX(26px);
+  background: var(--c-accent1);
+}
+
+/* Currency Dropdown */
+.currency-dropdown-wrapper {
+  position: relative;
+}
+
+.currency-dropdown-btn {
+  background: rgba(17, 76, 90, 0.5);
+  border: 1px solid var(--c-border);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  transition: border-color 150ms ease-out;
+}
+
+.currency-dropdown-btn:hover {
+  border-color: var(--c-border-hover);
+}
+
+.currency-dropdown-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--c-accent1);
+}
+
+.dropdown-chevron {
+  filter: invert(93%) sepia(8%) saturate(301%) hue-rotate(97deg) brightness(101%) contrast(89%);
+  transition: transform 200ms ease-out;
+}
+
+.currency-dropdown-btn[aria-expanded="true"] .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.currency-list {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #172B36;
+  border: 1px solid var(--c-border-hover);
+  border-radius: 12px;
+  margin-top: 8px;
+  padding: 6px 0;
+  list-style: none;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.currency-list.open {
+  display: block;
+}
+
+.currency-item {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 150ms ease-out, color 150ms ease-out;
+}
+
+.currency-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--c-text);
+}
+
+.currency-item.selected {
+  color: var(--c-accent1);
+  font-weight: 600;
+  background: rgba(255, 200, 1, 0.08);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-card {
+  background: rgba(17, 43, 54, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--c-border);
+  border-radius: 20px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--c-border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pricing-card.popular {
+  border-color: var(--c-accent1);
+  background: rgba(17, 76, 90, 0.3);
+  box-shadow: var(--shadow-glow-strong), 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.pricing-card.popular:hover {
+  box-shadow: var(--shadow-glow-strong), var(--shadow-card-hover);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: var(--grad-cta);
+  color: #172B36;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(255, 200, 1, 0.2);
+}
+
+.card-header {
+  margin-bottom: 28px;
+}
+
+.tier-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  color: var(--c-text);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.tier-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  line-height: 1.5;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 96px;
+  justify-content: center;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--c-border);
+  padding-bottom: 24px;
+}
+
+.price-billing-detail {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--c-muted);
+  margin-top: 8px;
+  height: 16px;
+  line-height: 16px;
+}
+
+.original-price {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+  height: 18px;
+  opacity: 0.7;
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+}
+
+.current-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-4xl);
+  color: var(--c-text);
+  letter-spacing: -1px;
+}
+
+.billing-cycle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  margin-left: 6px;
+}
+
+.tier-features {
+  list-style: none;
+  margin-bottom: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tier-features li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--c-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tier-features li::before {
+  content: '✓';
+  color: var(--c-accent1);
+  font-weight: 800;
+}
+
+.pricing-cta {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--c-text);
+  border: 1px solid var(--c-border-hover);
+  padding: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 150ms ease-out;
+}
+
+.pricing-card.popular .pricing-cta {
+  background: var(--grad-cta);
+  color: #172B36;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 200, 1, 0.2);
+}
+
+.pricing-cta:hover {
+  background: var(--c-accent1);
+  color: #172B36;
+  border-color: var(--c-accent1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.pricing-card.popular .pricing-cta:hover {
+  background: linear-gradient(90deg, #FFD233 0%, #FFA84D 100%);
+  box-shadow: 0 8px 25px rgba(255, 200, 1, 0.35), var(--shadow-glow);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: 32px;
+  }
+}

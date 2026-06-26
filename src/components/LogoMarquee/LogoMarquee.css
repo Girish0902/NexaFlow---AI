@@ -1,0 +1,55 @@
+.logo-marquee-section {
+  background-color: var(--c-bg);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  padding: 24px 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 80px;
+  animation: marquee 40s linear infinite;
+  padding-left: 40px;
+  will-change: transform;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.partner-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--c-muted);
+  opacity: 0.5;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  transition: opacity 150ms ease-out, color 150ms ease-out;
+  cursor: default;
+}
+
+.partner-logo:hover {
+  opacity: 0.9;
+  color: var(--c-accent1);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

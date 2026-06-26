@@ -1,0 +1,118 @@
+.cta-banner-section {
+  background: linear-gradient(135deg, rgba(255, 200, 1, 0.05) 0%, rgba(255, 153, 50, 0.03) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 200, 1, 0.15);
+  border-bottom: 1px solid rgba(255, 200, 1, 0.15);
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--c-text);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 100px rgba(255, 200, 1, 0.03);
+}
+
+.cta-banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-3xl);
+  color: var(--c-text);
+}
+
+.cta-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  max-width: 500px;
+  line-height: 1.5;
+  color: var(--c-muted);
+}
+
+.cta-form {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  background: #172B36;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  margin-top: 12px;
+}
+
+.cta-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  padding: 12px 16px;
+  outline: none;
+}
+
+.cta-input::placeholder {
+  color: var(--c-muted);
+  opacity: 0.6;
+}
+
+.cta-submit-btn {
+  background: var(--grad-cta);
+  color: #172B36;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.cta-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(255, 200, 1, 0.4);
+}
+
+.cta-submit-btn:focus-visible {
+  box-shadow: 0 0 0 2px var(--c-accent1);
+}
+
+@media (max-width: 600px) {
+  .cta-form {
+    flex-direction: column;
+    background: transparent;
+    box-shadow: none;
+    gap: 12px;
+    padding: 0;
+  }
+  .cta-input {
+    background: #172B36;
+    border-radius: 8px;
+    border: 1px solid var(--c-border);
+    padding: 14px;
+  }
+  .cta-submit-btn {
+    padding: 14px;
+  }
+}

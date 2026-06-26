@@ -1,0 +1,266 @@
+/* Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-bg);
+  background-image: var(--grad-hero);
+  background-attachment: fixed;
+  color: var(--c-text);
+  overflow-x: hidden;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-surface);
+  border-radius: 4px;
+  border: 2px solid var(--c-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-accent1);
+}
+
+/* Keyboard navigation focus ring */
+:focus-visible {
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px var(--c-accent1), 0 0 10px var(--c-accent1);
+}
+
+/* Text Gradient Utility */
+.text-gradient {
+  background: linear-gradient(
+    110deg,
+    #FFC801 0%,
+    #FF9932 40%,
+    #ffffff 50%,
+    #FF9932 60%,
+    #FFC801 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShine 5s linear infinite;
+}
+
+@keyframes goldShine {
+  0% {
+    background-position: 200% 50%;
+  }
+  15% {
+    background-position: 200% 50%;
+  }
+  40% {
+    background-position: -200% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: var(--grad-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--c-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 150ms cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--c-border-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Spotlight Border Glow & Smooth Scale/Glow Hover Effect */
+.bento-card, .pricing-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent !important;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, box-shadow 300ms ease !important;
+  /* Dual background: content-masked padding box + radial gradient spotlight border box */
+  background: 
+    linear-gradient(rgba(17, 43, 54, 0.45), rgba(17, 43, 54, 0.45)) padding-box,
+    radial-gradient(circle 120px at var(--shimmer-x, -999px) var(--shimmer-y, -999px), rgba(255, 200, 1, 0.45), rgba(255, 200, 1, 0.15) 60%, rgba(255, 255, 255, 0.05) 100%) border-box !important;
+}
+
+.pricing-card {
+  border-radius: 20px !important;
+}
+
+.bento-card.active, .pricing-card.popular {
+  background: 
+    linear-gradient(rgba(17, 76, 90, 0.3), rgba(17, 76, 90, 0.3)) padding-box,
+    radial-gradient(circle 120px at var(--shimmer-x, -999px) var(--shimmer-y, -999px), rgba(255, 200, 1, 0.65), var(--c-accent1) 60%, rgba(255, 200, 1, 0.2) 100%) border-box !important;
+}
+
+.bento-card::after, .pricing-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 160px at var(--shimmer-x, -999px) var(--shimmer-y, -999px),
+    rgba(255, 200, 1, 0.08) 0%,
+    transparent 80%
+  );
+  opacity: var(--shimmer-opacity, 0);
+  transition: opacity 0.3s ease;
+  z-index: 1; /* Under the text but over the background */
+}
+
+/* Ensure contents layer above the inner glow */
+.bento-card > *, .pricing-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.008) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 200, 1, 0.06) !important;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px) scale(1.008) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 200, 1, 0.06) !important;
+}
+
+.pricing-card.popular:hover {
+  box-shadow: var(--shadow-glow-strong), 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 200, 1, 0.1) !important;
+}
+
+/* Scroll reveal classes with 3D flip-in perspective and Z-depth entry */
+.reveal {
+  opacity: 0;
+  transform: perspective(1200px) rotateX(25deg) translateZ(-60px) translateY(40px);
+  transform-origin: top center;
+  will-change: opacity, transform;
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: perspective(1200px) rotateX(0deg) translateZ(0px) translateY(0px);
+}
+
+.reveal:nth-child(1) { --delay: 0ms; }
+.reveal:nth-child(2) { --delay: 80ms; }
+.reveal:nth-child(3) { --delay: 160ms; }
+.reveal {
+  transition-delay: var(--delay, 0ms);
+}
+
+/* Stagger reveal animations for child elements */
+.reveal-stagger {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: perspective(1200px) rotateX(25deg) translateZ(-60px) translateY(40px);
+  transform-origin: top center;
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: perspective(1200px) rotateX(0deg) translateZ(0px) translateY(0px);
+}
+
+/* Stagger delays up to 6 children */
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 500ms; }
+
+/* Page load entry animations (max 500ms total) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accordion CSS (Zero JS animations) */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-panel.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+.chevron {
+  transition: transform 200ms ease-out;
+}
+
+.accordion-item.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* Logo Marquee keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Background vignette glows */
+.glow-orb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 200, 1, 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

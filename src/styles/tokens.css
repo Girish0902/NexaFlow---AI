@@ -1,0 +1,39 @@
+:root {
+  /* Color Tokens - Shifted to Ultra-Dark Slate & Pitch Black */
+  --c-bg: #080c0f;             /* Pitch Black / Oceanic Noir Override */
+  --c-surface: #12181d;        /* Nocturnal Expedition / Charcoal Override */
+  --c-accent1: #FFC801;        /* Forsythia */
+  --c-accent2: #FF9932;        /* Deep Saffron */
+  --c-text: #F1F6F4;           /* Arctic Powder */
+  --c-muted: #D9E8E2;          /* Mystic Mint */
+
+  /* Ultra-Premium Black Glassmorphic Gradients */
+  --grad-hero: radial-gradient(circle at 50% 50%, #151e24 0%, #0b1114 40%, #05080a 100%);
+  --grad-cta: linear-gradient(90deg, #FFC801 0%, #FF9932 100%);
+  --grad-glow: radial-gradient(circle at center, rgba(255, 200, 1, 0.12) 0%, transparent 70%);
+  --grad-card: linear-gradient(135deg, rgba(5, 8, 10, 0.65) 0%, rgba(12, 18, 22, 0.8) 100%);
+  --grad-card-hover: linear-gradient(135deg, rgba(8, 12, 15, 0.75) 0%, rgba(18, 26, 32, 0.9) 100%);
+  
+  /* Glowing Shadows & Borders */
+  --shadow-glow: 0 0 30px rgba(255, 200, 1, 0.15);
+  --shadow-glow-strong: 0 0 45px rgba(255, 200, 1, 0.25);
+  --shadow-card-hover: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 200, 1, 0.08);
+  --c-border: rgba(255, 200, 1, 0.1);
+  --c-border-hover: rgba(255, 200, 1, 0.3);
+
+  /* Fonts */
+  --font-display: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+
+  /* Typography Scale */
+  --text-hero: clamp(2.5rem, 5.5vw, 4.2rem);
+  --text-5xl: 3.5rem;
+  --text-4xl: clamp(2rem, 4vw, 3rem);
+  --text-3xl: 2.2rem;
+  --text-2xl: 1.6rem;
+  --text-xl: 1.2rem;
+  --text-lg: 1.1rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+}
